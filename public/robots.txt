@@ -1,0 +1,4 @@
+# PREVIEW: keep search engines out until the Impressum and privacy placeholders are filled in.
+# At launch, replace with:  User-agent: *  /  Disallow: /stats.html
+User-agent: *
+Disallow: /
