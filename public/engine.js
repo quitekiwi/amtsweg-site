@@ -437,7 +437,7 @@ function refreshProgress(){
     const done = state.done.has(li.dataset.id);
     li.classList.toggle('done', done);
     li.classList.toggle('next-stop', li.dataset.id === nextId);
-    // the numeral, and this step's own stroke of the logogram (pale until done)
+    // the numeral, and this step's dot (pale until done, wine when it's next)
     const piece = window.Logogram ? `<span class="node-ink">${Logogram.strokeSvg(stops.indexOf(li), stops.length, { seed: 4, plain: true, weight: 1.35 })}</span>` : '';
     li.querySelector('.node').innerHTML = `<span class="node-num">${li.dataset.num}</span>${piece}` + (done ? `<span class="visually-hidden">${T.doneSuffix}</span>` : '');
     li.querySelector('.step-head .visually-hidden').textContent = done ? T.stepDone(li.dataset.num) : T.step(li.dataset.num);
@@ -454,7 +454,7 @@ function refreshProgress(){
     (dates.length === 1 ? ` ${typo(fmtDate(dates[0]))}` : '') + `</span>`;
   // the progress logogram: one ink stroke per step, inked when that step is done
   if(window.Logogram){
-    $('progress-mark').innerHTML = Logogram.svg({ n: ids.length, done: ids.map(id=>state.done.has(id)), color: '#F4EEEE', ghost: 'rgba(244,238,238,.16)', seed: 4, fresh: state.fresh, plain: true, weight: 1.35, rough: 3 });
+    $('progress-mark').innerHTML = Logogram.svg({ n: ids.length, done: ids.map(id=>state.done.has(id)), color: '#F4EEEE', ghost: 'rgba(244,238,238,.34)', seed: 4, fresh: state.fresh, plain: true, weight: 1.35, rough: 3 });
   }
 
   const panel = $('next-panel');
